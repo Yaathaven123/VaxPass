@@ -1,4 +1,5 @@
 App = {
+
   loading: false,
   contracts: {},
 
@@ -6,6 +7,7 @@ App = {
     await App.loadWeb3()
     await App.loadAccount()
     await App.loadContract()
+    App.pushRecords() // SHOWS a ERROR here as well
     await App.render()
   },
 
@@ -43,8 +45,6 @@ App = {
       console.log('Non-Ethereum browser detected. Please try again.')
     }
   },
-
-
 
   // Set the current blockchain account
   loadAccount: async () => {
@@ -97,8 +97,6 @@ App = {
       // Create the html for the records
       const $newRecordTemplate = $recordTemplate.clone()
       $newRecordTemplate.find('.content').html(recordNIC)
-      $newRecordTemplate.find('input')
-                      .prop('name', recordId)
 
       // Display the records 
       try {
@@ -111,6 +109,34 @@ App = {
       $newRecordTemplate.show()
     }
   },
+
+
+
+
+
+
+
+
+  // Push records to the MySQL server     -- THIS PART IS NOT WORKING
+  pushRecords: async () => {
+    App.setLoading(false)
+    const dbService = require('./dbService');
+    const db = dbService.getDbServiceInstance();
+  
+    //const result = db.pushData();
+
+      connection.query('INSERT INTO records VALUES (231763796);', (err,rows) => {
+    if(err) throw err;
+  });
+
+  },
+
+
+
+
+
+
+
 
   // Calling create record function from the smart contract
   createRecord: async () => {
@@ -131,11 +157,12 @@ App = {
       loader.hide()
       content.show()
     }
-  }
+  },
+
 }
 
-$(() => {
-  $(window).load(() => {
-    App.load()
+  $(() => {
+    $(window).load(() => {
+      App.load()
+    })
   })
-})
