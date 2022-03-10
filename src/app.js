@@ -27,7 +27,7 @@ App = {
         // Request account access if needed
         await ethereum.enable()
         // Acccounts now exposed
-        web3.eth.sendTransaction({/* ... */})
+        web3.eth.sendTransaction({/* ... */ })
       } catch (error) {
         // User denied account access...
       }
@@ -38,7 +38,7 @@ App = {
       App.web3Provider = web3.currentProvider
       window.web3 = new Web3(web3.currentProvider)
       // Acccounts always exposed
-      web3.eth.sendTransaction({/* ... */})
+      web3.eth.sendTransaction({/* ... */ })
     }
     // Non-dapp browsers
     else {
@@ -110,33 +110,19 @@ App = {
     }
   },
 
-
-
-
-
-
-
-
   // Push records to the MySQL server     -- THIS PART IS NOT WORKING
   pushRecords: async () => {
     App.setLoading(false)
     const dbService = require('./dbService');
     const db = dbService.getDbServiceInstance();
-  
+
     //const result = db.pushData();
 
-      connection.query('INSERT INTO records VALUES (231763796);', (err,rows) => {
-    if(err) throw err;
-  });
+    connection.query('INSERT INTO records VALUES (231763796);', (err, rows) => {
+      if (err) throw err;
+    });
 
   },
-
-
-
-
-
-
-
 
   // Calling create record function from the smart contract
   createRecord: async () => {
@@ -161,8 +147,8 @@ App = {
 
 }
 
-  $(() => {
-    $(window).load(() => {
-      App.load()
-    })
+$(() => {
+  $(window).load(() => {
+    App.load()
   })
+})
