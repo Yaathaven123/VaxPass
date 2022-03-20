@@ -7,7 +7,7 @@ App = {
     await App.loadWeb3()
     await App.loadAccount()
     await App.loadContract()
-    App.pushRecords() // SHOWS a ERROR here as well
+    // App.pushRecords() // SHOWS a ERROR here as well
     await App.render()
   },
 
@@ -116,7 +116,7 @@ App = {
     const dbService = require('./dbService');
     const db = dbService.getDbServiceInstance();
 
-    //const result = db.pushData();
+    const result = db.pushData();
 
     connection.query('INSERT INTO records VALUES (231763796);', (err, rows) => {
       if (err) throw err;
@@ -145,6 +145,11 @@ App = {
     }
   },
 
+  // ON submit get the checked values of the list and use pushRecords to send to DB
+  onPress: async() =>{
+
+  }
+  
 }
 
 $(() => {
