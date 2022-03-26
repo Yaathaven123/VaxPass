@@ -16,7 +16,7 @@ import Login from "./Login";
 import { clear } from "@testing-library/user-event/dist/clear";
 
 
-function App() {
+function Search() {
 
   const [itemNumber, setItemNumber] = useState(0);
   const [name, setName] = useState("");
@@ -183,8 +183,8 @@ function App() {
             <div className="list">
               <div className="heading">
                 <div className="title">
-                  <div>Recent Records</div>
-                  <h6>Recently Added Records to the Blockchain</h6>
+                  <div>Search Records</div>
+                  <h6>Search Records from the Blockchain</h6>
                 </div>
               </div>
 
@@ -204,7 +204,7 @@ function App() {
               ) : (
                 <ul>
 
-                  {/* <Button color="success" onClick={() => { syncItems(); }}> Sync </Button> */}
+                  <Button color="success" onClick={() => { syncItems(); }}> Sync </Button>
 
 
 
@@ -250,4 +250,4 @@ function App() {
   );
 }
 
-export default App;
+export default Search;

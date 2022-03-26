@@ -1,4 +1,4 @@
-import { init, addItem, getItems, deleteItem } from "./Web3Client";
+import { init, addItem, getItems, deleteItem } from "./Web3Client.js";
 
 export function updateTransactionStatus(message) {
   if (message === "pending") {
