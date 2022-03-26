@@ -15,9 +15,10 @@ import {
 import Login from "./Login";
 import { clear } from "@testing-library/user-event/dist/clear";
 
-const mysql = require('mysql');
+import {fs} from "fs"
 
 function App() {
+  
   const [itemNumber, setItemNumber] = useState(0);
   const [name, setName] = useState("");
   const [items, setItems] = useState([]);
@@ -46,32 +47,23 @@ function App() {
     successfulTransaction();
   }
 
-  function syncItems(){
-    let instance = null;
+  async function syncItems(){
 
-    const connection = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "vaxpass",
-        port: "3306"
-      });
+  console.log("Sync start test")
 
-      connection.connect((err)=>{
-        if (err){
-          console.log("Something went wrong!");
-          console.log(err.message);
-        }
-        else{
-          console.log("Connection Successfull!");
-          console.log('db status :' + connection.state);
-        }
-    })
-    
-    connection.query('INSERT INTO records (nic) VALUES ("3141xxxx");', (err, rows) => {
-      if (err) throw err;
-    });
+  fs.writeFile("/tmp/test", "Hey there!", function(err) {
+    if(err) {
+        return console.log(err);
+    }
+    console.log("The file was saved!");
+});
+
+  console.log("Sync end test")
   }
+
+
+   
+
 
   // // Push records to the MySQL server     -- THIS PART IS NOT WORKING
   // pushRecords: async () => {
@@ -190,14 +182,15 @@ function App() {
               ) : (
                 <ul>
 
-                  <Button color="success"
-                          key={"itembutton no "}
-                          onClick={() => {
 
-                            setTimeout(() => {
-                              syncItems();
-                            }, 1000);
+
+                  <Button color="success"
+                          onClick={() => {
+                            syncItems();
                           }}> Sync </Button>
+
+
+                          
 
                   {items.map((item, index) => {
                     return (
