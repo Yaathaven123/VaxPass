@@ -20,5 +20,5 @@ Blockchain based vaccination record system
 
 4. Setup and Run Node
 
-    npm install
-    npm start
+        npm install
+        npm start
