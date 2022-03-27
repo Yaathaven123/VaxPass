@@ -83,7 +83,7 @@ export const deleteItem = async (
 ) => {
   console.log("\nDeleting item on contract ", Contract);
   messageUpdator("pending");
-  const res = await Contract.methods
+  await Contract.methods
     .deleteItem(itemNumber)
     .send({
       from: selectedAccount,

@@ -1,33 +1,15 @@
-import { init, addItem, getItems, deleteItem } from "./Web3Client.js";
+import { init } from "./Web3Client.js";
 
 export function updateTransactionStatus(message) {
   if (message === "pending") {
-    document.getElementById("pending").style.display = "flex";
-    document.getElementById("pending").style.transform = "scale(1)";
-    document.getElementById("success").style.transform = "scale(0)";
-    document.getElementById("rejected").style.transform = "scale(0)";
-    document.getElementById("initiate").style.transform = "scale(0)";
+    console.log("Transaction Pending")
   } else if (message === "success") {
-    document.getElementById("pending").style.transform = "scale(0)";
-    document.getElementById("rejected").style.transform = "scale(0)";
-    document.getElementById("initiate").style.transform = "scale(0)";
-    document.getElementById("success").style.display = "flex";
-    document.getElementById("success").style.transform = "scale(1)";
+    console.log("Transaction Success")
     clearTx(message);
   } else if (message === "rejected") {
-    document.getElementById("pending").style.transform = "scale(0)";
-    document.getElementById("success").style.transform = "scale(0)";
-    document.getElementById("initiate").style.transform = "scale(0)";
-
-    document.getElementById("rejected").style.display = "flex";
-    document.getElementById("rejected").style.transform = "scale(1)";
+    console.log("Transaction Rejected")
   } else if (message === "initiate") {
-    document.getElementById("pending").style.transform = "scale(0)";
-    document.getElementById("success").style.transform = "scale(0)";
-    document.getElementById("rejected").style.transform = "scale(0)";
-
-    document.getElementById("initiate").style.display = "flex";
-    document.getElementById("initiate").style.transform = "scale(1)";
+    console.log("Transaction Initiated")
   }
 }
 export function successfulTransaction() {

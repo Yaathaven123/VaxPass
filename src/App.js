@@ -1,24 +1,14 @@
-import react, { useEffect } from "react";
 import { useState } from "react";
-import { init, addItem, getItems, deleteItem } from "./Web3Client.js";
-import "./App.css";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { addItem, getItems, deleteItem } from "./Web3Client.js";
+import "./Styles.css";
+import { Button, Form, FormGroup, Label, Input} from "reactstrap";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import {
-  failedTransaction,
-  initiateApp,
-  successfulTransaction,
-  updateTransactionStatus,
-  clearTx,
-} from "./Utilities";
+import { failedTransaction, initiateApp, successfulTransaction, updateTransactionStatus} from "./Utilities";
 import Login from "./Login";
-import { clear } from "@testing-library/user-event/dist/clear";
 
-
+//  Start of the React - New Record Route
 function App() {
-
-  const [itemNumber, setItemNumber] = useState(0);
   const [name, setName] = useState("");
   const [items, setItems] = useState([]);
   const [LoggedIn, setLoggedIn] = useState(false);
@@ -28,26 +18,14 @@ function App() {
     getItems(setItems);
   }
 
-  function clearTransactionButtons() {
-    document.getElementById("initiate").style.transform = "scale(0)";
-    document.getElementById("pending").style.transform = "scale(0)";
-    document.getElementById("success").style.transform = "scale(0)";
-    document.getElementById("rejected").style.transform = "scale(0)";
-  }
-  //  clearTransactionButtons();
-
   function pushItem(item = undefined) {
     let stuff = [...items];
     if (item !== undefined) {
       stuff.push(item);
       setItems(stuff);
     } else getItems(setItems);
-
     successfulTransaction();
   }
-
-
-
 
   return (
     <div className="main">
@@ -57,13 +35,11 @@ function App() {
           <Login onClick={logIn} />
         </div>
       ) : (
-        <div
-          onLoad={setTimeout(() => {
-            clearTransactionButtons();
-          }, 0)}
-        >
+        <div onLoad={setTimeout(() => { }, 0)}>
           <Navbar />
           <div className="app">
+
+            {/* Left Column */}
             <div className="addItem">
               <div className="title">
                 <div className="title">
@@ -72,27 +48,18 @@ function App() {
                 </div>
               </div>
 
-
               <Form>
                 <FormGroup>
                   <Label for="name">NIC Number :</Label>
                   <br />
-                  <Input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="Enter NIC number of the patient"
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
-                  />
+                  <Input type="text" name="name" id="name" placeholder="Enter NIC number of the patient" onChange={(e) => { setName(e.target.value); }} />
                   <br />
                   <Button
                     color="success"
                     className="btn-scale"
                     onClick={async (e) => {
                       e.preventDefault();
-                      if (document.getElementById("name").value == "") {
+                      if (document.getElementById("name").value === "") {
                         alert("NIC is Empty. Please try again");
                         return;
                       }
@@ -105,29 +72,12 @@ function App() {
                         updateTransactionStatus
                       );
                     }}
-                  >
-                    Add Record
-                  </Button>{" "}
+                  > Add Record </Button>{" "}
                 </FormGroup>
               </Form>
-              <div className="transact_status" id="transact_status">
-                <Button id="pending" className="pending" color="warning">
-                  Pending
-                </Button>
-                <Button id="success" className="success" color="success">
-                  Success
-                </Button>
-                <Button id="rejected" className="rejected" color="danger">
-                  Rejected !!
-                </Button>
-                <Button id="initiate" className="initiate" color="info">
-                  Initiated
-                </Button>
-              </div>
             </div>
 
-
-
+            {/* Right Column */}
             <div className="list">
               <div className="heading">
                 <div className="title">
@@ -136,7 +86,7 @@ function App() {
                 </div>
               </div>
 
-
+              {/* Displaying Available Records View Start*/}
               {!items.length ? (
                 <ul className="">
                   <br />
@@ -151,8 +101,6 @@ function App() {
                 </ul>
               ) : (
                 <ul>
-
-
                   {items.map((item, index) => {
                     return (
                       <li key={"item no " + index}>
@@ -162,9 +110,7 @@ function App() {
                           key={"itembutton no " + index}
                           onClick={() => {
                             updateTransactionStatus("initiate");
-
-                            console.log("attempt to delete item ", index);
-
+                            console.log("Trying to delete item ", index);
                             setTimeout(() => {
                               deleteItem(
                                 index,
@@ -172,18 +118,13 @@ function App() {
                                 updateTransactionStatus
                               );
                             }, 1000);
-                          }}
-                        >
-                          {" "}
-                          {item}
-                        </Button>
+                          }}>{" "}{item}</Button>
                       </li>
-
                     );
                   })}
                 </ul>
               )}
-
+              {/* Displaying Available Records View End*/}
 
               <Footer onLoad={console.log("Footer Loaded")} />
             </div>
