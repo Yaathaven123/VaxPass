@@ -8,7 +8,14 @@ Blockchain based vaccination record system
 - Metamask
 - NodeJS
 - ReactJS
+- Ganache
 
-### I order run the Application
+### To run the Application
+- Run Ganache
+- Compile and Migrate truffle contract
+    npx truffle compile
+    npx truffle migrate
+    
+- Setup and Run Node
     npm install
     npm start
