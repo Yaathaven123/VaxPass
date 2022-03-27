@@ -8,3 +8,7 @@ Blockchain based vaccination record system
 - Metamask
 - NodeJS
 - ReactJS
+
+### I order run the Application
+    npm install
+    npm start
