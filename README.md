@@ -11,11 +11,11 @@ Blockchain based vaccination record system
 - Ganache
 
 ### To run the Application
-- Run Ganache
-- Compile and Migrate truffle contract
+Run Ganache
+Compile and Migrate truffle contract
     npx truffle compile
     npx truffle migrate
-    
-- Setup and Run Node
+
+Setup and Run Node
     npm install
     npm start
