@@ -1,5 +1,5 @@
 ## VaxPass
-Blockchain based vaccination record system
+A Blockchain based vaccination record system.
 
 ### Build with
 - Solidity
