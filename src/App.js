@@ -47,58 +47,6 @@ function App() {
   }
 
 
-  async function syncItems() {
-
-    console.log("Sync function start test");
-    console.log(items[1]);
-
-    // const connection = mysql.createConnection({
-    //   host: "localhost",
-    //   user: "root",
-    //   password: "",
-    //   database: "vaxpass",
-    //   port: "3306"
-    // });
-
-    // await connection.promises.connect((err) => {
-    //   if (err) {
-    //     console.log("Something went wrong!");
-    //     console.log(err.message);
-    //   }
-    //   else {
-    //     console.log("Connection Successfull!");
-    //     console.log('db status :' + connection.state);
-    //   }
-    // })
-
-    //connection.query('INSERT INTO records (nic) VALUES ("454534fsd");')
-
-
-
-
-    // await browserfs.promises.writeFile("/tmp/test", "Hey there!")
-    //   .catch((err) => { console.log(err) });
-
-    // console.log("Sync end test")
-
-  }
-
-
-  // // Push records to the MySQL server     -- THIS PART IS NOT WORKING
-  // pushRecords: async () => {
-  //   App.setLoading(false)
-  //   const dbService = require('./dbService');
-  //   const db = dbService.getDbServiceInstance();
-
-  //   //const result = db.pushData();
-
-  //   connection.query('INSERT INTO records VALUES (231763796);', (err, rows) => {
-  //     if (err) throw err;
-  //   });
-
-  // }
-
-
 
 
   return (
@@ -204,17 +152,13 @@ function App() {
               ) : (
                 <ul>
 
-                  {/* <Button color="success" onClick={() => { syncItems(); }}> Sync </Button> */}
-
-
-
 
                   {items.map((item, index) => {
                     return (
                       <li key={"item no " + index}>
                         {" "}
                         <Button
-                          color="danger"
+                          color="info"
                           key={"itembutton no " + index}
                           onClick={() => {
                             updateTransactionStatus("initiate");

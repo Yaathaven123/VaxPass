@@ -29,12 +29,9 @@ function Search() {
   }
 
   function clearTransactionButtons() {
-    document.getElementById("initiate").style.transform = "scale(0)";
-    document.getElementById("pending").style.transform = "scale(0)";
-    document.getElementById("success").style.transform = "scale(0)";
-    document.getElementById("rejected").style.transform = "scale(0)";
+    document.getElementById("vaccinated").style.transform = "scale(0)";
+    document.getElementById("notvaccinated").style.transform = "scale(0)";
   }
-  //  clearTransactionButtons();
 
   function pushItem(item = undefined) {
     let stuff = [...items];
@@ -45,8 +42,6 @@ function Search() {
 
     successfulTransaction();
   }
-
-
 
   return (
     <div className="main">
@@ -62,13 +57,13 @@ function Search() {
           }, 0)}
         >
           <Navbar />
-          
+
           <div className="app">
             <div className="addItem">
               <div className="title">
                 <div className="title">
-                  <div>New Record</div>
-                  <h6>Add New Vaccination Record to Blockchain</h6>
+                  <div>Search Record</div>
+                  <h6>Search Records from the Blockchain</h6>
                 </div>
               </div>
 
@@ -97,33 +92,22 @@ function Search() {
                         return;
                       }
                       document.getElementById("name").value = "";
-                      updateTransactionStatus("initiate");
-                      await addItem(
-                        name.toString(),
-                        pushItem,
-                        failedTransaction,
-                        updateTransactionStatus
-                      );
+
+                      if (items.includes(name)) {
+                        console.log("Vaccinated")
+                        document.getElementById("vaccinated").style.transform = "scale(1)";
+                      } else {
+                        console.log("Not Vaccinated")
+                        document.getElementById("notvaccinated").style.transform = "scale(1)";
+                      }
                     }}
                   >
-                    Add Record
+                    Search
                   </Button>{" "}
                 </FormGroup>
               </Form>
-              <div className="transact_status" id="transact_status">
-                <Button id="pending" className="pending" color="warning">
-                  Pending
-                </Button>
-                <Button id="success" className="success" color="success">
-                  Success
-                </Button>
-                <Button id="rejected" className="rejected" color="danger">
-                  Rejected !!
-                </Button>
-                <Button id="initiate" className="initiate" color="info">
-                  Initiated
-                </Button>
-              </div>
+
+
             </div>
 
 
@@ -131,58 +115,22 @@ function Search() {
             <div className="list">
               <div className="heading">
                 <div className="title">
-                  <div>Search Records</div>
-                  <h6>Search Records from the Blockchain</h6>
+                  <div>Vaccination Status</div>
+                  <h6>Find the Vaccinated status</h6>
                 </div>
               </div>
 
 
-              {!items.length ? (
-                <ul className="">
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <li>
-                    <h1>No Records Available</h1>
-                  </li>{" "}
-                  <br />
-                </ul>
-              ) : (
-                <ul>
 
 
-                  {items.map((item, index) => {
-                    return (
-                      <li key={"item no " + index}>
-                        {" "}
-                        <Button
-                          color="danger"
-                          key={"itembutton no " + index}
-                          onClick={() => {
-                            updateTransactionStatus("initiate");
-
-                            console.log("attempt to delete item ", index);
-
-                            setTimeout(() => {
-                              deleteItem(
-                                index,
-                                pushItem,
-                                updateTransactionStatus
-                              );
-                            }, 1000);
-                          }}
-                        >
-                          {" "}
-                          {item}
-                        </Button>
-                      </li>
-
-                    );
-                  })}
-                </ul>
-              )}
+              <ul>
+                <li>
+                  <Button id="vaccinated" color="success" > User is Vaccinated </Button>
+                </li>
+                <li>
+                  <Button id="notvaccinated" color="danger" > User is NOT Vaccinated </Button>
+                </li>
+              </ul>
 
 
               <Footer onLoad={console.log("Footer Loaded")} />
