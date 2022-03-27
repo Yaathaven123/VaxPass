@@ -22,3 +22,6 @@ Blockchain based vaccination record system
 
     npm install
     npm start
+
+
+    stat
