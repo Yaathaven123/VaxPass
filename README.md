@@ -11,13 +11,14 @@ Blockchain based vaccination record system
 - Ganache
 
 ### To run the Application
-Run Ganache and Setup Metamask Wallet
-Compile and Migrate truffle contract
+1. Install and Run [Ganache](https://trufflesuite.com/ganache/index.html)
+2. Setup [Metamask](https://metamask.io) Wallet with first account of Ganache
+3. Compile and Migrate Truffle contract
 
     npx truffle compile
     npx truffle migrate
 
-Setup and Run Node
+4. Setup and Run Node
 
     npm install
     npm start
