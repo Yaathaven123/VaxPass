@@ -50,7 +50,7 @@ function App() {
 
               <Form>
                 <FormGroup>
-                  <Label for="name">NIC Number :</Label>
+                  {/* <Label id="flabel" for="name">NIC Number</Label> */}
                   <br />
                   <Input type="text" name="name" id="name" placeholder="Enter NIC number of the user" onChange={(e) => { setName(e.target.value); }} />
                   <br />

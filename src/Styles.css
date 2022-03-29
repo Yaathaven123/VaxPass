@@ -19,11 +19,36 @@
 
 .app {
   display: flex;
-  color: #2462c3;
+  color: #2d64c9;
   justify-content: center;
   padding: 40px;
 }
 
+#vaccinated{
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+#flabel{
+  color: #2462c3;
+  font-size: 18px;
+  font-weight: 550;
+  padding-bottom: 1px;
+}
+
+#logo{
+  margin-top: -200px;
+}
+#logo:hover {
+  transform: scale(1.01);
+}
+#topbar{
+  background-color: #0931a8;
+}
+
+.title{
+  margin-top: 50px;
+}
 .addItem {
   flex: 0.5;
   padding: 25px;
@@ -38,7 +63,7 @@
 .list {
   padding: 6px;
   flex: 0.5;
-  border-left: 1px solid #2483c36c;
+  border-left: 1px solid #2491c36c;
   height: 81vh;
 }
 .title {
@@ -158,17 +183,25 @@
 
 
 
+
+
+
+
+
+
 /* 
 ** The Header Media Queries **
 ** Tweak as per your needs **
 */
 .brand {
+  color: #0931a8;
   text-decoration: none;
   font-weight: bold;
-  font-size: 27px; }
+  font-size: 25px;
+}
 
 .site-header__top {
-  background-color: #def7ff; }
+  background-color: #0036e615; }
   .site-header__top ul {
     display: flex; }
   .site-header__top li:not(:last-child) {
@@ -304,8 +337,9 @@ body {
 .button {
   text-decoration: none;
   appearance: none;
+  font-weight: 500;
   color: #fff;
-  background-color: #2fa0f6;
+  background-color: #0931a8;
   min-width: 120px;
   padding: 0.5rem 1rem;
   border-radius: 5px;
