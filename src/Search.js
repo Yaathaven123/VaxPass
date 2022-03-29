@@ -27,21 +27,20 @@ function Search() {
     <div className="main">
       {!LoggedIn ? (
         <div>
-        <Navbar onClick={logIn} />
-        <Login />
-      </div>
+          <Navbar onClick={logIn} />
+          <Login />
+        </div>
       ) : (
         <div onLoad={setTimeout(() => { clearTransactionButtons(); }, 0)}>
           <Navbar />
 
           <div className="app">
 
-            {/* Left Column */}
-            <div className="addItem">
+            <div className="searchRecords">
               <div className="title">
                 <div className="title">
-                  <div>Search Record</div>
-                  <h6>Search Records from the Blockchain</h6>
+                  <div>Search Records</div>
+                  <h1></h1>
                 </div>
               </div>
 
@@ -51,10 +50,7 @@ function Search() {
                   <br />
                   <Input type="text" name="name" id="name" placeholder="Enter NIC number of the user" onChange={(e) => { setName(e.target.value); }} />
                   <br />
-                  <Button
-                    color="success"
-                    className="btn-scale"
-                    onClick={async (e) => {
+                  <botton onClick={async (e) => {
                       e.preventDefault();
                       if (document.getElementById("name").value === "") {
                         alert("NIC is Empty. Please try again");
@@ -70,33 +66,23 @@ function Search() {
                         document.getElementById("notvaccinated").style.transform = "scale(1)";
                       }
                     }}
-                  > Search </Button>{" "}
+                   class="button">Search</botton>
+                  {" "}
                 </FormGroup>
               </Form>
-            </div>
-
-            {/* Right Column */}
-            <div className="list">
               <div className="heading">
                 <div className="title">
                   <div>Vaccination Status</div>
-                  <h6>Find the Vaccinated status</h6>
+                  <h1> </h1>
                 </div>
               </div>
-
-              {/* Vaccination Status View Start */}
-              <ul>
-                <li>
-                  <Button id="vaccinated" color="success" > User is Vaccinated </Button>
-                </li>
-                <li>
-                  <Button id="notvaccinated" color="danger" > User is NOT Vaccinated </Button>
-                </li>
-              </ul>
-              {/* Vaccination Status View End */}
-
-              <Footer onLoad={console.log("Footer Loaded")} />
+              
+                <Button id="vaccinated" color="success" > User is Vaccinated </Button>
+                <Button id="notvaccinated" color="danger" > User is NOT Vaccinated </Button>
             </div>
+
+
+            <Footer onLoad={console.log("Footer Loaded")} />
           </div>
         </div>
       )}
