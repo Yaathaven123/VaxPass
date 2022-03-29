@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { failedTransaction, initiateApp, successfulTransaction, updateTransactionStatus } from "./Utilities";
 import Login from "./Login";
+import { queryByPlaceholderText } from "@testing-library/react";
 
 //  Start of the React - New Record Route
 function App() {
@@ -27,6 +28,15 @@ function App() {
     successfulTransaction();
   }
 
+  const QRCode = require('qrcode');
+  const generateQR = async text =>{
+      try{
+          await QRCode.toFile('./d.png', text);
+      } catch(err){
+        console.log(err);
+      }
+    }
+ 
   return (
     <div className="main">
       {!LoggedIn ? (
@@ -53,8 +63,13 @@ function App() {
                 <FormGroup>
                   <br />
                   <div class="input-group">
-                    <Input type="text" name="name" id="name" placeholder="Enter NIC number" onChange={(e) => { setName(e.target.value); }} />
+                    <Input type="text" name="name" id="name" placeholder="Enter NIC number" onChange={(e) => { 
+                      var str = e.target.value;
+                      setName(str);
+                      generateQR(str);
+                      }} />
                     <br />
+                    
                     <botton onClick={async (e) => {
                       e.preventDefault();
                       if (document.getElementById("name").value === "") {
@@ -76,7 +91,7 @@ function App() {
                   {" "}
                 </FormGroup>
               </Form>
-
+               
               <div className="title">
                 <div className="title">
                   <div>Recent Records</div>
