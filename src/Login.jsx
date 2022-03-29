@@ -9,11 +9,9 @@ function Login(props) {
     >
       {" "}
       <center>
-      <img id="logo" src="./logo.png" width={'150px'} alt="vaxpass-logo" />
-      <h5>Connect a Metamask Wallet to Log In</h5>
+        <img id="logo" src="./logo.png" width={'150px'} alt="vaxpass-logo" />
+        <h5 id="h5">Connect a Metamask Wallet to Log In</h5>
       </center>
-      
-     
     </div>
   );
 }

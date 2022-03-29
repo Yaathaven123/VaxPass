@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getItems } from "./Web3Client.js";
 import "./Styles.css";
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import { initiateApp } from "./Utilities";
@@ -36,22 +36,21 @@ function Search() {
           <div className="app">
 
             <div className="searchRecords">
+              
               <div className="title">
                 <div className="title">
                   <div>Search Records</div>
-                  <h1> </h1>
+                  <h6> </h6>
                 </div>
               </div>
 
               <Form>
                 <FormGroup>
-                  
-                  {/* <Label id="flabel" for="name">NIC Number</Label> */}
                   <br />
                   <div class="input-group">
-                  <Input size="5" type="text" name="name" id="name" placeholder="Enter NIC number" onChange={(e) => { setName(e.target.value); }} />
-                  
-                  <botton onClick={async (e) => {
+                    <Input size="5" type="text" name="name" id="name" placeholder="Enter NIC number" onChange={(e) => { setName(e.target.value); }} />
+
+                    <botton onClick={async (e) => {
                       e.preventDefault();
                       if (document.getElementById("name").value === "") {
                         alert("NIC is Empty. Please try again");
@@ -64,7 +63,7 @@ function Search() {
                         document.getElementById("vaccinated").style.color = "#00d894";
                         document.getElementById("vaccinated").innerHTML = "VACCINATED";
                         document.getElementById("vaccinated").style.transform = "scale(1)";
-                        
+
                       } else {
                         console.log("Not Vaccinated")
                         document.getElementById("vaccinated").style.color = "#f52f57";
@@ -72,9 +71,9 @@ function Search() {
                         document.getElementById("vaccinated").style.transform = "scale(1)";
                       }
                     }}
-                   class="button">Search</botton></div>
+                      class="button">Search</botton></div>
                   {" "}
-                  
+
                 </FormGroup>
               </Form>
               <div className="heading">
@@ -85,7 +84,7 @@ function Search() {
               </div>
               <center>
                 <h3 id="vaccinated" > - STATUS - </h3>
-                </center>
+              </center>
             </div>
 
 

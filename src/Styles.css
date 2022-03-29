@@ -46,10 +46,31 @@
   background-color: #0931a8;
 }
 
+#h5{
+  font-size: 18px;
+  font-weight: 350;
+  color: rgb(88, 88, 88);
+}
+
+#nic{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 18px;
+  font-weight: 350;
+  color: rgb(88, 88, 88);
+}
+
+#records{
+  list-style-type:none;
+}
+
+#itm{
+  margin-bottom: 10px;
+}
+
 .title{
   margin-top: 50px;
 }
-.addItem {
+.addRecords {
   flex: 0.5;
   padding: 25px;
   height: 81vh;
@@ -63,7 +84,6 @@
 .list {
   padding: 6px;
   flex: 0.5;
-  border-left: 1px solid #2491c36c;
   height: 81vh;
 }
 .title {
