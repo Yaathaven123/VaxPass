@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addItem, getItems, deleteItem } from "./Web3Client.js";
+import { addItem, getItems } from "./Web3Client.js";
 import "./Styles.css";
 import { Form, FormGroup, Input } from "reactstrap";
 import Footer from "./Footer";
@@ -96,17 +96,7 @@ function App() {
                           
                           <li id="itm" key={"item no " + index}><hr></hr>
                             {" "}
-                            <h5 id="nic" key={"itembutton no " + index} onClick={() => {
-                              updateTransactionStatus("initiate");
-                              console.log("Trying to delete item ", index);
-                              setTimeout(() => {
-                                deleteItem(
-                                  index,
-                                  pushItem,
-                                  updateTransactionStatus
-                                );
-                              }, 1000);
-                            }}>{""}{item}</h5>
+                            <h5 id="nic" key={"itembutton no " + index}>{""}{item}</h5>
                           </li>
                         );
                       })}

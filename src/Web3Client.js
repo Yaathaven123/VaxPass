@@ -76,25 +76,6 @@ export const addItem = async (
   );
 };
 
-export const deleteItem = async (
-  itemNumber,
-  updateItems = undefined,
-  messageUpdator
-) => {
-  console.log("\nDeleting item on contract ", Contract);
-  messageUpdator("pending");
-  await Contract.methods
-    .deleteItem(itemNumber)
-    .send({
-      from: selectedAccount,
-    })
-    .on("receipt", function (a, b) {
-      console.log("Item deleted");
-      updateItems();
-      return;
-    });
-};
-
 export const getItems = async (setItems) => {
   if (provider === undefined || Contract === undefined) {
     await init();

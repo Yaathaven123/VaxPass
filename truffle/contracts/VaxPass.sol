@@ -9,16 +9,6 @@ contract VaxPass {
         items.push(item);
     }
 
-    function deleteItem(uint256 index) public returns (string[] memory) {
-        if (index >= items.length) return items;
-
-        for (uint256 i = index; i < items.length - 1; i++) {
-            items[i] = items[i + 1];
-        }
-        items.pop();
-        return items;
-    }
-
     function getItems() public view returns (string[] memory) {
         return items;
     }
