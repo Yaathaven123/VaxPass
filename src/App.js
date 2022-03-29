@@ -31,8 +31,8 @@ function App() {
     <div className="main">
       {!LoggedIn ? (
         <div>
-          <Navbar />
-          <Login onClick={logIn} />
+          <Navbar onClick={logIn} />
+          <Login />
         </div>
       ) : (
         <div onLoad={setTimeout(() => { }, 0)}>

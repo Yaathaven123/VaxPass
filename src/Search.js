@@ -27,9 +27,9 @@ function Search() {
     <div className="main">
       {!LoggedIn ? (
         <div>
-          <Navbar />
-          <Login onClick={logIn} />
-        </div>
+        <Navbar onClick={logIn} />
+        <Login />
+      </div>
       ) : (
         <div onLoad={setTimeout(() => { clearTransactionButtons(); }, 0)}>
           <Navbar />

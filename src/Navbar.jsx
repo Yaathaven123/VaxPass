@@ -1,16 +1,13 @@
 import React from "react";
-function Navbar() {
+function Navbar(props) {
   return (
-    <div className="navbar d-flex">
-      <div className="d-flex rounded__image">
-        <img src="./logo.png" alt="VaxPass-logo"/>
-        <div className="title__small">
-          <p>
-          VaxPass
-            <br />
-            A Blockchain based Vaccination Passport
-            <hr />
-          </p>
+    <div class="site-header__top">
+      <div class="wrapper site-header__wrapper">
+        <div class="site-header__middle">
+          <a href="https://github.com/sandxru/VaxPass" class="brand">VaxPass</a>
+        </div>
+        <div class="site-header__end">
+        <botton onClick={props.onClick} class="button">Connect Wallet</botton>
         </div>
       </div>
     </div>
