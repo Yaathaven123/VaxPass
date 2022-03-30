@@ -35,9 +35,11 @@ export const init = async (informer = undefined) => {
   );
   console.log("the contract seems", Contract);
 };
+
 const sleep = (milliseconds) => {
   return new Promise((resolve) => setTimeout(resolve, milliseconds));
 };
+
 export const addItem = async (
   item,
   itemsUpdator = undefined,
